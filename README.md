@@ -1,4 +1,4 @@
-# plarento.github.io
+# plarento.com
 ### English - German version below ###
 This is the temporary website for plareto.
 

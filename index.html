@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>plarento — Coming Soon</title>
+  <meta name="description" content="plarento startet bald — trag dich in die Mailingliste ein und erfahre als Erstes von Neuigkeiten." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg-1:#0f172a;--bg-2:#071033;--accent:#6EE7B7;--muted:#94a3b8;--glass:rgba(255,255,255,0.06);--radius:14px;color-scheme:dark}
+    *{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background: radial-gradient(1200px 600px at 10% 10%, rgba(110,231,183,0.06), transparent), radial-gradient(900px 500px at 90% 90%, rgba(99,102,241,0.04), transparent), linear-gradient(180deg,var(--bg-1),var(--bg-2)); color:#e6eef8;display:flex;align-items:center;justify-content:center;padding:32px}
+    .card{width:100%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:20px;padding:48px;box-shadow: 0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px); display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:center;position:relative}
+    @media (max-width:880px){.card{grid-template-columns:1fr; padding:32px}}
+    .brand{display:flex;align-items:center;gap:14px} .logo{width:64px;height:64px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#60a5fa); box-shadow: 0 6px 18px rgba(16,24,40,0.5);font-weight:800;color:#071033;font-size:20px}
+    h1{margin:0;font-size:34px;line-height:1.03} p.lead{margin:18px 0 22px;color:var(--muted);max-width:54ch}
+    .features{display:flex;flex-direction:column;gap:12px} .feature{display:flex;gap:12px;align-items:flex-start} .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(180deg,var(--accent),#34d399);margin-top:6px}
+    form{background:var(--glass);padding:20px;border-radius:12px;display:flex;flex-direction:column;gap:12px} label{font-size:13px;color:var(--muted)}
+    .input-row{display:flex;gap:10px} input[type="email"]{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;font-size:15px;outline:none;transition:box-shadow .15s, border-color .15s} input[type="email"]:focus{box-shadow:0 6px 18px rgba(16,24,40,0.5);border-color:rgba(255,255,255,0.12)}
+    button{background:linear-gradient(90deg,var(--accent),#60a5fa);border:none;padding:10px 16px;border-radius:10px;font-weight:600;cursor:pointer} button:disabled{opacity:.6;cursor:default}
+    .note{font-size:13px;color:var(--muted)} .success{display:none;padding:18px;border-radius:10px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.12);color:#a7f3d0}
+    footer{margin-top:18px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:12px} .small{font-size:13px;color:var(--muted)}
+    .card::after{content:"";position:absolute;pointer-events:none;inset:0;mix-blend-mode:overlay;opacity:0.04;background:conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.02), transparent 20%);border-radius:22px;transform:translateY(6px);}
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="headline">
+
+    <section>
+      <div class="brand" aria-hidden="true">
+        <div class="logo">P</div>
+        <div>
+          <div style="font-size:15px;font-weight:600">plarento</div>
+          <div class="small">Einfach. Modern. Bald.</div>
+        </div>
+      </div>
+
+      <h1 id="headline">Wir arbeiten an etwas Neuem — plarento</h1>
+      <p class="lead">Bald startet plarento: eine moderne Lösung, die dir hilft, Projekte smarter zu planen und zu teilen. Trag dich jetzt in unsere Liste ein und wir informieren dich, sobald es Neuigkeiten gibt.</p>
+
+      <div class="features" aria-hidden="false">
+        <div class="feature"><div class="dot" aria-hidden="true"></div><div><strong>Beta-Start</strong> — Sei einer der Ersten, die plarento testen.</div></div>
+        <div class="feature"><div class="dot" aria-hidden="true"></div><div><strong>Exklusive Updates</strong> — Produkt-News, Einladungen und Sonderaktionen.</div></div>
+      </div>
+
+      <footer>
+        <div class="small">© <span id="year"></span> plarento</div>
+        <div class="small"><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a></div>
+      </footer>
+    </section>
+
+    <aside>
+      <form id="signupForm" novalidate>
+        <label for="email">Trag deine E-Mail ein</label>
+        <div class="input-row">
+          <input id="email" name="email" type="email" placeholder="deinname@email.de" aria-label="E-Mail-Adresse" required>
+          <button id="submitBtn" type="submit">Benachrichtigen</button>
+        </div>
+        <div class="note">Keine Werbung. Nur wichtige Updates. Du kannst dich jederzeit abmelden.</div>
+
+        <div id="success" class="success" role="status" aria-live="polite"></div>
+      </form>
+
+      <div style="margin-top:18px;font-size:13px;color:var(--muted)">
+        <strong>Warum E-Mail?</strong>
+        <div style="margin-top:8px">E-Mails sind zuverlässig und wir geben deine Adresse nicht weiter. Für technische Integrationen einfach später die API anbinden.</div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('signupForm');
+    const emailInput = document.getElementById('email');
+    const submitBtn = document.getElementById('submitBtn');
+    const successBox = document.getElementById('success');
+
+    function validateEmail(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      if(!validateEmail(email)){
+        successBox.style.display = 'block';
+        successBox.style.color = '#fecaca';
+        successBox.style.borderColor = 'rgba(248,113,113,0.12)';
+        successBox.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sende...';
+      try{
+        const resp = await fetch('/subscribe', {
+          method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email})
+        });
+        if(resp.ok){
+          successBox.style.display = 'block';
+          successBox.style.color = '#a7f3d0';
+          successBox.style.borderColor = 'rgba(16,185,129,0.12)';
+          successBox.textContent = 'Danke! Wir benachrichtigen dich sobald es Neuigkeiten gibt.';
+          emailInput.value = '';
+        } else {
+          const text = await resp.text().catch(()=>resp.statusText || 'Fehler');
+          successBox.style.display = 'block';
+          successBox.style.color = '#fecaca';
+          successBox.style.borderColor = 'rgba(248,113,113,0.12)';
+          successBox.textContent = 'Es gab ein Problem: ' + text;
+        }
+      }catch(err){
+        successBox.style.display = 'block';
+        successBox.style.color = '#fecaca';
+        successBox.style.borderColor = 'rgba(248,113,113,0.12)';
+        successBox.textContent = 'Netzwerkfehler — bitte prüfe deine Verbindung oder versuche es später.';
+      } finally{
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Benachrichtigen';
+      }
+    });
+
+    emailInput.addEventListener('input', ()=>{ if(successBox.style.display === 'block'){ successBox.style.display = 'none'; } });
+  </script>
+</body>
+</html>
